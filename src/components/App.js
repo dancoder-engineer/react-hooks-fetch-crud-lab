@@ -21,8 +21,12 @@ function App() {
 
 function handleDelete(id) {
     fetch(`http://localhost:4000/questions/${id}`, {method:"DELETE"})
-    let quess = questions.filter(i => i.id !== id)
+    .then(res => res.json)
+    .then(data => {let quess = questions.filter(i => i.id !== id)
     setQuestions(quess)
+
+    })
+    
 }
            
 
